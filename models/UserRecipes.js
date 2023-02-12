@@ -1,40 +1,40 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// const { Model, DataTypes } = require('sequelize');
+// const sequelize = require('../config/connection');
 
-class UserRecipes extends Model {}
+// class UserRecipes extends Model {}
 
-UserRecipes.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-                unique: false
-            }
-        },
-        recipes_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'recipes',
-                key: 'id',
-                unique: false
-            }
-        },
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'userRecipes',
-    }
-);
+// UserRecipes.init(
+//     {
+//         id: {
+//             type: DataTypes.INTEGER,
+//             allowNull: false,
+//             primaryKey: true,
+//             autoIncrement: true,
+//         },
+//         user_id: {
+//             type: DataTypes.INTEGER,
+//             references: {
+//                 model: 'user',
+//                 key: 'id',
+//                 unique: false
+//             }
+//         },
+//         recipes_id: {
+//             type: DataTypes.INTEGER,
+//             references: {
+//                 model: 'recipes',
+//                 key: 'id',
+//                 unique: false
+//             }
+//         },
+//     },
+//     {
+//         sequelize,
+//         timestamps: false,
+//         freezeTableName: true,
+//         underscored: true,
+//         modelName: 'userRecipes',
+//     }
+// );
 
-module.exports = UserRecipes;
+// module.exports = UserRecipes;

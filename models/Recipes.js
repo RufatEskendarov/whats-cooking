@@ -5,27 +5,42 @@ class Recipes extends Model {}
 
 Recipes.init(
     {
-        id: {
+        recipe_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        id: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        meal_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'meals',
-                key: 'id',
-            },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-        cuisine_id: {
+        publisher: {
+            type: DataTypes.STRING,
+        },
+        sourceUrl: {
+            type: DataTypes.STRING(2083),
+        },
+        img: {
+            type: DataTypes.STRING(2083),
+        },
+        servings: {
+            type: DataTypes.INTEGER,
+        },
+        cookingTime: {
+            type: DataTypes.INTEGER,
+        },
+        ingredients: {
+            type: DataTypes.JSON,
+        },
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'cuisine',
+                model: 'user',
                 key: 'id',
             },
         }
