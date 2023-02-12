@@ -1,0 +1,24 @@
+<div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        Placeholder
+      </p>
+      <p class="subtitle">
+        This will be the profile page!
+      </p>
+    </div>
+</div>
+
+{{#each recipes as |recipe| }}
+<div>
+  <div>
+    <img src="{{recipe.img}}">
+  </div>
+  <div>
+    <h2>{{recipe.title}}</h2>
+  </div>
+  <div>
+    <h3><a href="{{recipe.sourceUrl}}">Click here for Recipe!</a></h3>
+  </div>
+</div>
+{{/each}}
