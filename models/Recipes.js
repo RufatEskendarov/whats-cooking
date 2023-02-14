@@ -25,7 +25,7 @@ Recipes.init(
         sourceUrl: {
             type: DataTypes.STRING(2083),
         },
-        img: {
+        image: {
             type: DataTypes.STRING(2083),
         },
         servings: {
