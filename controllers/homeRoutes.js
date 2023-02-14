@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Recipes } = require('../models');
+const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
@@ -19,7 +20,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     const recipeData = await Recipes.findAll({});
 
