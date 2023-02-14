@@ -23,11 +23,11 @@
       </section>
       <section class="intro_content">
         <section class="container">
-          <h1 class="intro_title">Hello, What's cooking today?</h1>
+          <h1 class="intro_title title-m">Hello, What's cooking today?</h1>
         </section>
       </section>
       <section class="log_in">
-        <form class="box">
+        <form class="box is-hidden">
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
@@ -53,6 +53,35 @@
           <section class="box-button">
             <button class="button is-primary">Log in</button>
             <button class="button is-primary">Sign in</button>
+          </section>
+        </form>
+
+        <form class="box box-in">
+          <div class="field">
+            <label class="label">User Name</label>
+            <div class="control">
+              <input class="input" type="name" placeholder="e.g. Alex" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input
+                class="input"
+                type="email"
+                placeholder="e.g. alex@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="password" placeholder="********" />
+            </div>
+          </div>
+          <section class="box-button">
+            <button class="button is-primary sign">Sign in</button>
           </section>
         </form>
       </section>
