@@ -17,10 +17,17 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the dashboard page
         document.location.replace('/profile');
       } else {
-        alert(response.statusText);
+        alert('Login failed, please try again!');
       }
     }
   };
+
+  const displaySignup = (event) => {
+    event.preventDefault();
+
+    document.querySelector('#login-form').classList.add('is-hidden');
+    document.querySelector('#signup-form').classList.remove('is-hidden');
+  }
   
   const signupFormHandler = async (event) => {
     event.preventDefault();
@@ -45,9 +52,13 @@ const loginFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.login-form')
+    .querySelector('#login-form')
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-form')
+    .querySelector('#signup-form')
     .addEventListener('submit', signupFormHandler);
+  
+  document
+    .querySelector('#signup-button')
+    .addEventListener('click', displaySignup);
