@@ -22,18 +22,43 @@ router.get('/login', (req, res) => {
 
 router.get('/profile', async (req, res) => {
   try {
-    const recipeData = await Recipes.findAll({});
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {
+        exclude: ['password'],
+      },
+      include: [
+        {
+          model: Recipes,
+        },
+      ],
+    });
 
-    const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+    const user = userData.get({ plain: true });
+    console.log(user);
 
     res.render('profile', {
-      recipes,
-      // logged in functionality disabled until login built out.
-      // logged_in: req.session.logged_in
+      ...user,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.get('/profile', async (req, res) => {
+//   try {
+//     const recipeData = await Recipes.findAll({});
+
+//     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+
+//     res.render('profile', {
+//       recipes,
+//       // logged in functionality disabled until login built out.
+//       // logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

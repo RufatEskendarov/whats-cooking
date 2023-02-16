@@ -59,4 +59,15 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+// Code to try and return results from search bar: how to return only results where title includes search query term?
+// router.get('/search', async (req, res) => {
+//     try {
+//     const recipesData = await Recipes.findAll({ where: { title: } });
+//     console.log(recipesData);
+//     res.status(200).json(recipesData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
 module.exports = router;
