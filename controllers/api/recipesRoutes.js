@@ -1,9 +1,29 @@
 const router = require('express').Router();
-const { Recipes } = require('../../models');
+const { Recipes, User } = require('../../models');
 
 router.get('/', async (req, res) => {
     try {
-    const recipesData = await Recipes.findAll({    
+    const recipesData = await Recipes.findAll({
+      include: [
+        {
+          model: User
+        },
+      ]  
+    });
+    res.status(200).json(recipesData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+    const recipesData = await Recipes.findByPk(req.params.id, {
+      include: [
+        {
+          model: User
+        },
+      ]
     });
     res.status(200).json(recipesData);
     } catch (err) {

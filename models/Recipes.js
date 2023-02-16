@@ -5,15 +5,11 @@ class Recipes extends Model {}
 
 Recipes.init(
     {
-        recipe_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-        },
-        id: {
-            type: DataTypes.STRING,
-            allowNull: false,
         },
         title: {
             type: DataTypes.STRING,
@@ -25,7 +21,7 @@ Recipes.init(
         sourceUrl: {
             type: DataTypes.STRING(2083),
         },
-        img: {
+        image: {
             type: DataTypes.STRING(2083),
         },
         servings: {
@@ -36,13 +32,6 @@ Recipes.init(
         },
         ingredients: {
             type: DataTypes.JSON,
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
         }
     },
     {

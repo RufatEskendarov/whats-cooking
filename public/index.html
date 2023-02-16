@@ -26,13 +26,15 @@
           <h1 class="intro_title title-m">What's cooking today?</h1>
         </section>
       </section>
-      <section class="log_in">
+      <section class="log_in"
         <form class="box">
+
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
               <input
                 class="input"
+                id="email-login"
                 type="email"
                 placeholder="e.g. alex@example.com"
               />
@@ -42,20 +44,34 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input class="input" type="password" placeholder="********" />
+              <input
+                class="input"
+                id="password-login"
+                type="password"
+                placeholder="********"
+              />
             </div>
           </div>
           <section class="box-button">
             <button class="button is-primary">Log in</button>
-            <button class="button is-primary">Sign in</button>
+            <button class="button is-primary" id="signup-button" type="button">
+              Sign Up Instead!
+            </button>
           </section>
         </form>
 
+
         <form class="box box-in is-hidden">
+
           <div class="field">
             <label class="label">User Name</label>
             <div class="control">
-              <input class="input" type="name" placeholder="e.g. Alex" />
+              <input
+                class="input"
+                id="name-signup"
+                type="name"
+                placeholder="e.g. Alex"
+              />
             </div>
           </div>
           <div class="field">
@@ -63,6 +79,7 @@
             <div class="control">
               <input
                 class="input"
+                id="email-signup"
                 type="email"
                 placeholder="e.g. alex@example.com"
               />
@@ -72,11 +89,16 @@
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input class="input" type="password" placeholder="********" />
+              <input
+                class="input"
+                id="password-signup"
+                type="password"
+                placeholder="********"
+              />
             </div>
           </div>
           <section class="box-button">
-            <button class="button is-primary sign">Sign in</button>
+            <button class="button is-primary sign">Sign Up</button>
           </section>
         </form>
       </section>
@@ -357,5 +379,7 @@
         <section class="column is-2"></section>
       </section>
     </section>
+
+    <script src="/js/login.js"></script>
   </body>
 </html>

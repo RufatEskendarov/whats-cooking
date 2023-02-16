@@ -1,78 +1,10 @@
-// const User = require('./User');
-// const Recipes = require('./Recipes');
-// const Cuisine = require('./Cuisine');
-// const Meals = require('./Meals');
-
-
-// //Export your models so that it can be required in the server.js
-// // and/or routes files
-// Cuisine.hasMany(Recipes, {
-//     foreignKey: 'cuisine_id'
-// });
-
-// Recipes.belongsTo(Cuisine);
-
-// Meals.hasMany(Recipes, {
-//     foreignKey: 'meal_id'
-// });
-
-// Recipes.belongsTo(Meals);
-
-// User.hasMany(Recipes, {
-//     foreignKey: 'user_id'
-// });
-
-// Recipes.belongsTo(User);
-
-// // User.belongsToMany(Recipes, {
-// //     through: {
-// //         model: UserRecipes,
-// //         unique: false
-// //     },
-// //     as: 'recipe_users'
-// // });
-
-
-
-// module.exports = { User, Recipes, Cuisine, Meals };
-
 const User = require('./User');
 const Recipes = require('./Recipes');
-// const Cuisine = require('./Cuisine');
-// const Meals = require('./Meals');
-// const UserRecipes = require('./UserRecipes');
+const UserRecipes = require('./UserRecipes');
 
-//Export your models so that it can be required in the server.js
-// and/or routes files
-// Recipes.belongsTo(Cuisine, {
-//     foreignKey: 'cuisine_id'
-// });
+User.belongsToMany(Recipes, { through: UserRecipes });
 
-// Recipes.belongsTo(Meals, {
-//     foreignKey: 'meal_id'
-// });
-
-// Recipes.belongsToMany(User, {
-//     through: {
-//         model: UserRecipes,
-//         unique: false
-//     },
-//     as: 'user_recipes'
-// });
-
-// User.belongsToMany(Recipes, {
-//     through: {
-//         model: UserRecipes,
-//         unique: false
-//     },
-//     as: 'recipe_users'
-// });
-
-User.hasMany(Recipes, {
-    foreignKey: 'user_id'
-});
-
-Recipes.belongsTo(User);
+Recipes.belongsToMany(User, { through: UserRecipes });
 
 
-module.exports = { User, Recipes };
+module.exports = { User, Recipes, UserRecipes };
