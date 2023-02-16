@@ -52,11 +52,16 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .intro_title {
+  padding-top: 10rem;
   font-family: Tahoma, sans-serif;
   font-weight: bold;
   width: 49.2%;
@@ -66,11 +71,11 @@ body {
   text-align: left;
 }
 .title-m {
-  width: 23ch;
+  width: 18ch;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 5px solid azure;
-  animation: flashing-border 0.75s step-end infinite, printed-text 5s steps(23);
+
+  animation: flashing-border 0.75s step-end infinite, printed-text 3s steps(18);
 }
 @keyframes flashing-border {
   0% {
@@ -92,7 +97,7 @@ body {
 .log_in {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
   width: 100%;
   height: 100%;
   padding: 1%;
@@ -101,10 +106,36 @@ body {
   left: 0%;
   z-index: 6;
 }
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 1px 10px 5px rgb(115, 137, 211);
+  border-radius: 15px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  height: 4rem;
+  /*  */
+  border-radius: 15px;
+  background-clip: content-box;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px 2px;
+  background-image: linear-gradient(to right bottom, #a1c2e0, #6853dd);
+}
+
 .box {
-  height: 36%;
+  position: absolute;
+  top: 35%;
+  height: 17rem;
   width: 25%;
-  max-width: 36%;
+  max-height: 20rem;
   max-width: 30%;
   background-color: rgba(255, 255, 255, 0.4);
   border: 1px azure solid;
@@ -112,7 +143,8 @@ body {
 }
 
 .box-in {
-  height: 50%;
+  height: 22rem;
+  max-height: 28rem;
 }
 .box-button {
   display: flex;
@@ -149,7 +181,7 @@ body {
 
   color: azure;
   top: 10%;
-  left: 7%;
+  left: 48rem;
 }
 /* section {
   border: 2px black solid;
@@ -302,6 +334,7 @@ svg {
 
 .col2 {
   height: 100%;
+
   background-color: #edf7fc;
 }
 
@@ -443,8 +476,9 @@ svg {
   width: 2rem;
 }
 .recipe {
-  height: 100%;
+  height: 92%;
   width: 100%;
+  overflow: scroll;
 }
 
 .recipe__fig {
@@ -490,6 +524,7 @@ svg {
 
 .recipe__info {
   text-transform: uppercase;
+  margin-right: 1rem;
   align-items: center;
   font-size: 1.5rem;
   display: flex;
@@ -560,10 +595,10 @@ svg {
   transition: all 0.3s;
 }
 
-.recipe__user--generated {
+.recipe__user-generated {
   height: 4rem;
   width: 4rem;
-  background-color: #eeeae8;
+  background-color: #d1e5f1;
   border-radius: 10rem;
   justify-content: center;
   align-items: center;
@@ -572,9 +607,9 @@ svg {
   display: flex;
 }
 
-.recipe__user--generated svg {
-  height: 2.25rem;
-  width: 2.25rem;
+.recipe__user-generated svg {
+  height: 2rem;
+  width: 2rem;
   fill: #2f1ece;
 }
 
@@ -600,7 +635,7 @@ svg {
   background-color: #edf7fc;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 8rem;
+  padding: 1.5rem 3rem;
   font-size: 1.6rem;
   line-height: 1.4;
   display: flex;
@@ -610,7 +645,7 @@ svg {
   color: #5135f1;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -635,26 +670,32 @@ svg {
 
 .recipe__quantity {
   flex: none;
+  font-size: 1.5rem;
   margin-right: 0.5rem;
 }
 
 .recipe__description {
+  font-size: 1.5rem;
 }
 
 .recipe__unit {
 }
-.recipe__descriptions {
+.recipe__directions {
   flex-direction: column;
   align-items: center;
-  padding: 5rem 10rem;
+  padding: 0.5rem 5rem;
   display: flex;
 }
 
-.recipe__descriptions-text {
+.recipe__directions h2 {
+  font-size: 1.25rem;
+}
+
+.recipe__directions-text {
   text-align: center;
   color: #918581;
-  margin-bottom: 3.5rem;
-  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .recipe__publisher {
@@ -662,19 +703,27 @@ svg {
 }
 
 .btn--small {
-  padding: 1.25rem 2.25rem;
+  /* width: 6rem; */
+  padding: 1.25rem 1.25rem;
   font-size: 1.4rem;
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
   cursor: pointer;
-  background-image: linear-gradient(to bottom right, #fbdb89, #f48982);
+  background-image: linear-gradient(to bottom right, #a1c2e0, #5135f1);
   border: none;
   border-radius: 10rem;
   align-items: center;
   transition: all 0.2s;
   display: flex;
+  margin-bottom: 1rem;
+}
+
+.btn--small:active {
+  font-size: 0.9rem;
+  transform: translateY(-4px);
+  transition: 0.3s;
 }
 
 .btn--small svg {
