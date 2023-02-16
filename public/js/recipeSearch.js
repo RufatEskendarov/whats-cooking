@@ -3,10 +3,10 @@ const recipeSearch = async (event) => {
   
     // Collect values from the login form
     const search = document.querySelector('#search-input').value.trim();
+    console.log(search);
   
     if (search) {
-      // Send a POST request to the API endpoint
-      const response = await fetch('/api/recipes/');
+      const response = await fetch(`/api/recipes?search=${search}`);
       const data = response.json();
       console.log(data);
   

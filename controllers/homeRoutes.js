@@ -33,11 +33,23 @@ router.get('/profile', async (req, res) => {
       ],
     });
 
+    // const recipesData = await Recipes.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //     },
+    //   ],
+    // });
+
     const user = userData.get({ plain: true });
     console.log(user);
 
+    // const recipes = recipesData.get({ plain: true });
+    // console.log(recipes);
+
     res.render('profile', {
       ...user,
+      // ...recipes,
       logged_in: req.session.logged_in
     });
   } catch (err) {
