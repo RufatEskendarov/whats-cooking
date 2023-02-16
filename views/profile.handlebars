@@ -4,9 +4,9 @@
       <section class="column is-2"></section>
       <section class="column is-8">
         <section class="top-head">
-          <form class="search">
-            <input type="text" class="search__field" placeholder="Search over 1,000,000 recipes..." />
-            <button class="btn-head">
+          <form class="search" id="search-form">
+            <input type="text" class="search__field" id="search-input" placeholder="Search over 1,000,000 recipes..." />
+            <button class="btn-head" type="submit">
               <svg class="search__icon">
                 <use href="./media/icons.svg#icon-search"></use>
               </svg>
@@ -31,7 +31,7 @@
               </button>
             </li>
             <li class="nav-btn">
-              <button class="btn-li">
+              <button class="btn-li" id="logout">
                 <svg class="">
                   <use href="./media/icons.svg#icon-user"></use>
                 </svg>
@@ -254,6 +254,9 @@
     </section>
   </section>
 </main>
+
+<script src="/js/recipeSearch.js"></script>
+<script src="/js/logout.js"></script>
 
 {{!-- {{#each recipes as |recipe| }}
 <div>
