@@ -1,10 +1,18 @@
 const router = require('express').Router();
 const { Recipes, User } = require('../../models');
+const { Op } = require('sequelize');
 
 router.get('/', async (req, res) => {
+    console.log(req.query.search);
+
     try {
     const recipesData = await Recipes.findAll({
-      include: [
+        where: {
+            title: {
+                [Op.like]: `%${req.query.search}%`
+            },
+        },
+        include: [
         {
           model: User
         },
