@@ -6,16 +6,10 @@ const recipeSearch = async (event) => {
     console.log(search);
   
     if (search) {
-      const response = await fetch(`/api/recipes?search=${search}`);
-      const data = response.json();
-      console.log(data);
-  
-    //   if (response.ok) {
-    //     // If successful, redirect the browser to the dashboard page
-    //     document.location.replace('/profile');
-    //   } else {
-    //     alert('Login failed, please try again!');
-    //   }
+      const response = await fetch(`/api/recipes?search=${search}`).then((res) =>
+        res.json()
+      );
+      console.log(response);
     }
   };
 
