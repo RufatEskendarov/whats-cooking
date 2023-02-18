@@ -21,13 +21,14 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/profile', (req, res) => {
-  User.findAll({ raw: true })
-    .then(users => {
+  User.findByPk(req.session.user_id, { raw: true })
+    .then(user => {
       Recipes.findAll({ raw: true})
         .then(recipes => {
-          console.log(users);
-          console.log(recipes);
-          res.render('profile', { users, recipes });
+          console.log(user);
+          // console.log(req.session);
+          // console.log(recipes);
+          res.render('profile', { user, recipes });
         });
     })
     .catch(err => {
