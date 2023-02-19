@@ -4,7 +4,6 @@ const loginFormHandler = async (event) => {
   // Collect values from the login form
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
-  const loggedIn = false
 
   if (email && password) {
     // Send a POST request to the API endpoint
@@ -17,7 +16,6 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       const status = await fetch('/api/users/login/:id', {
         method: 'PUT',
-        body: JSON.stringify({ loggedIn }),
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -53,7 +51,15 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      const status = await fetch('/api/users/login/:id', {
+        method: 'PUT',
+        body: JSON.stringify({ loggedIn }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (status.ok) {
+        document.location.replace('/profile');
+      }
     } else {
       alert(response.statusText);
     }
