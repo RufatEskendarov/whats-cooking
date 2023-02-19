@@ -3,7 +3,6 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const cookieParser = require("cookie-parser");
 
 //TODO: Uncomment to make use of database, once set up
 const sequelize = require("./config/connection");
