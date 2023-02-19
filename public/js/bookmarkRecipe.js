@@ -1,8 +1,7 @@
 const bookmarkRecipe = async (event, req) => {
     event.preventDefault();
   
-    // Collect values from the login form
-    // const userId = req.session.user_id;
+   // userId value is set from handlebars and written to a div at the top of profile.handlebarsnpm u 
    const userId = document.querySelector('#user-info').dataset.userId;
    console.log(userId);
    const recipeId = 2;
@@ -15,12 +14,12 @@ const bookmarkRecipe = async (event, req) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
-        // If successful, redirect the browser to the dashboard page
-        document.location.replace('/profile');
-      } else {
-        alert('Login failed, please try again!');
-      }
+      // if (response.ok) {
+      //   // If successful, redirect the browser to the dashboard page
+      //   document.location.reload();
+      // } else {
+      //   alert('Login failed, please try again!');
+      // }
     }
   };
 

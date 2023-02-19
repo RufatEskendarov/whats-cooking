@@ -45,8 +45,3 @@ const recipeSearch = async (event) => {
 `
         )
       );
-    }
-  }
-};
-
-document.querySelector("#search-form").addEventListener("submit", recipeSearch);
