@@ -243,6 +243,7 @@ body {
 }
 .search__field:active {
   border: none;
+  background-color: #fff;
 }
 
 .nav {
@@ -360,16 +361,20 @@ svg {
 }
 
 .preview {
-  background-color: #edf7fc;
   display: list-item;
   text-align: -webkit-match-parent;
   list-style: none;
 }
 
+.preview:hover {
+  background-color: #edf7fc;
+  transform: translateY(-2px);
+}
+
 .preview__link {
   border-right: 1px solid #fff;
   align-items: center;
-  padding: 0.5rem 1.25rem;
+  padding: 1rem 2rem;
   text-decoration: none;
   transition: all 0.3s;
   display: flex;
@@ -385,10 +390,10 @@ svg {
   overflow: hidden;
 }
 
-/* .preview_img {
+.preview_img {
   height: inherit;
-  width: auto;
-} */
+  width: 100%;
+}
 
 .preview__data {
   width: 100%;
@@ -401,10 +406,11 @@ svg {
 .preview__title {
   color: #2f1ece;
   text-transform: uppercase;
-  text-overflow: ellipsis;
-  max-width: 25rem;
   white-space: nowrap;
+  text-overflow: ellipsis;
   grid-column: 1 / -1;
+
+  max-width: 25rem;
   font-size: 1.2rem;
   font-weight: 600;
   overflow: hidden;
@@ -626,6 +632,7 @@ svg {
   display: flex;
 }
 .btn--round svg {
+  margin: 0;
   height: 2.5rem;
   width: 2.5rem;
   fill: #fff;
@@ -678,8 +685,8 @@ svg {
   font-size: 1.5rem;
 }
 
-.recipe__unit {
-}
+/* .recipe__unit {
+} */
 .recipe__directions {
   flex-direction: column;
   align-items: center;
@@ -732,11 +739,27 @@ svg {
   fill: currentColor;
 }
 
-/* h1 {
-  font-size: medium;
+.message,
+.error {
+  background-color: #edf7fc;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  display: flex;
 }
 
-p {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-} */ ;
+.message p,
+.error p {
+  margin-left: 1.5rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.message svg,
+.error svg {
+  height: 3rem;
+  width: 3rem;
+  fill: #5135f1;
+  transform: translateY(-0.3rem);
+}
