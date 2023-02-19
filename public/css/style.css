@@ -748,6 +748,18 @@ svg {
   display: flex;
 }
 
+.message-booked {
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #edf7fc;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-bottom: 3.2rem;
+  display: flex;
+}
+
 .message p,
 .error p {
   margin-left: 1.5rem;
@@ -762,4 +774,42 @@ svg {
   width: 3rem;
   fill: #5135f1;
   transform: translateY(-0.3rem);
+}
+
+.bookmarks {
+  padding: 1rem 0;
+  margin-top: 0.6rem;
+  position: absolute;
+  right: 23.8rem;
+  z-index: 16;
+  width: 30rem;
+  background-color: #fff;
+  box-shadow: 0 0.8rem 5rem 2rem #645956;
+  visibility: visible;
+  opacity: 0;
+  transition: all 0.5s 0.2s;
+}
+
+.bookmarks__list {
+  list-style: none;
+}
+
+.bookmarks__field {
+  cursor: pointer;
+  padding: 0 4rem;
+
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.bookmarks__field:hover {
+  background-color: #edf7fc;
+}
+
+.bookmarks:hover,
+.books:hover {
+  visibility: visible;
+  opacity: 1;
 }
