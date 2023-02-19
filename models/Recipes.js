@@ -11,6 +11,10 @@ Recipes.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        userGenerated: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
         title: {
             type: DataTypes.STRING,
             allowNull: false,
