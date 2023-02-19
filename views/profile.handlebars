@@ -1,5 +1,4 @@
 <main>
-  <div id="user-info" data-user-id="{{ user.id }}"></div>
   <section class="main is hidden">
     <section class="columns main-sec">
       <section class="column is-2"></section>
@@ -29,12 +28,56 @@
               </button>
             </li>
             <li class="nav-btn">
-              <button class="btn-li">
+              <button class="btn-li books">
                 <svg class="">
                   <use href="/media/icons.svg#icon-bookmark"></use>
                 </svg>
                 <span>Bookmarks</span>
               </button>
+              <div class="bookmarks">
+                 <ul class="bookmarks__list">
+                   <div class="message-booked">
+                     <div>
+                       <svg>
+                         <use href="/media/icons.svg#icon-smile"></use>
+                       </svg>
+                     </div>
+                     <p>
+                       No bookmarks yet. Find a nice recipe and bookmark it
+                     </p>
+                   </div>
+
+                  <li class="preview">
+                  <a
+                    class="preview__link preview__link--active"
+                    href="/profile/44"
+                  >
+                    <figure class="preview__fig">
+                      <img
+                        class="preview_img"
+                        src="{{data.image}}"
+                        alt="Test"
+                      />
+                    </figure>
+                    <div class="preview__data">
+                      <h4 class="preview__title">
+                        {{data.title}}
+                      </h4>
+                      <p class="preview__publisher">{{data.publisher}}</p>
+                      {{#if data.userGenerated}}
+                        <div class="preview__user-generated">
+                          <svg class="preview__icon">
+                            <use href="/media/icons.svg#icon-user"></use>
+                          </svg>
+                        </div>
+                      {{/if}}
+                    </div>
+                  </a>
+                </li>
+
+
+                 </ul>
+               </div>
             </li>
             <li class="nav-btn">
               <button class="btn-li" id="logout">
@@ -43,6 +86,7 @@
                 </svg>
                 <span>Log-out</span>
               </button>
+               
             </li>
           </ul>
         </section>
@@ -184,7 +228,7 @@
                     </svg>
                   </div>
                 {{/if}}
-                <button class="btn--round" id="bookmark-button">
+                <button class="btn--round">
                   <svg >
                     <use id="bookm" href="/media/icons.svg#icon-bookmark"></use>
                   </svg>
@@ -241,8 +285,6 @@
 <script src="/js/recipeSearch.js"></script>
 
 <script src="/js/logout.js"></script>
-
-<script src="/js/bookmarkRecipe.js"></script>
 
 {{!-- {{#each recipes as |recipe| }}
 <div>
