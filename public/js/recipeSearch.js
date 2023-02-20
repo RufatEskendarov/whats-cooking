@@ -10,7 +10,7 @@ const recipeSearch = async (event) => {
   console.log(search);
 
   if (search) {
-    const response = await fetch(`/api/recipes?search=${search}`).then((res) =>
+    const response = await fetch(`/api/recipes/find?search=${search}`).then((res) =>
       res.json()
     );
 

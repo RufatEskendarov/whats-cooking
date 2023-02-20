@@ -1,4 +1,3 @@
-
 const btnIncreaseServings = document.getElementById("btn--increase");
 const btnDecreaseServings = document.getElementById("btn--decrease");
 console.log(btnIncreaseServings);
@@ -60,61 +59,36 @@ const updateServings = async function () {
 };
 
 updateServings();
+
 const bookmarkRecipe = async (event, req) => {
   event.preventDefault();
 
-  // Collect values from the login form
-  // const userId = req.session.user_id;
-  const userId = document.querySelector("#user-info").dataset.userId;
-  console.log(userId);
-  const recipeId = 2;
+  // userId value is set from handlebars and written to a div at the top of profile.handlebars
+  const userId_str = document.querySelector('#user-id').textContent;
+  const userId = parseInt(userId_str);
+  //  console.log(userId);
 
-  if (userId) {
+  const url_str = window.location.pathname.split('/');
+  const recipeIdString = url_str[2];
+  const recipeId = parseInt(recipeIdString);
+  //  console.log(recipeId);
+
+  if (recipeId) {
     // Send a POST request to the API endpoint
-    const response = await fetch("/api/userrecipes", {
-      method: "POST",
+    const response = await fetch('/api/userrecipes', {
+      method: 'POST',
       body: JSON.stringify({ userId, recipeId }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
-      document.location.replace("/profile");
+      console.log('Bookmark added')
     } else {
-      alert("Login failed, please try again!");
+      alert('Unable to add bookmark, please try again!');
     }
   }
 };
-
-const bookmarkRecipe = async (event, req) => {
-    event.preventDefault();
-  
-   // userId value is set from handlebars and written to a div at the top of profile.handlebars
-   const userId_str = document.querySelector('#user-id').textContent;
-   const userId = parseInt(userId_str);
-  //  console.log(userId);
-
-   const url_str = window.location.pathname.split('/');
-   const recipeIdString = url_str[2];
-   const recipeId = parseInt(recipeIdString);
-  //  console.log(recipeId);
-
-    if (recipeId) {
-      // Send a POST request to the API endpoint
-      const response = await fetch('/api/userrecipes', {
-        method: 'POST',
-        body: JSON.stringify({ userId, recipeId }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        console.log('Bookmark added')
-      } else {
-        alert('Unable to add bookmark, please try again!');
-     }
-    }
-   }; 
-  document
+document
   .querySelector('.btn--round')
   .addEventListener('click', bookmarkRecipe);
 

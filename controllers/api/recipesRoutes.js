@@ -3,7 +3,14 @@ const { Recipes, User } = require('../../models');
 const { Op } = require('sequelize');
 
 router.get('/', async (req, res) => {
-    console.log(req.query.search);
+    Recipes.findAll({ raw: true })
+        .then((recipes) => {
+            res.json(recipes);
+        });
+});
+
+router.get('/find', async (req, res) => {
+    // console.log(req.query.search);
 
     try {
     const recipesData = await Recipes.findAll({
