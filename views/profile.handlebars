@@ -1,4 +1,4 @@
-<>
+
   <section class="main is hidden">
     <section class="columns main-sec">
       <section class="column is-2"></section>
@@ -207,12 +207,12 @@
                   <span class="recipe__info-text">servings</span>
 
                   <div class="recipe__info-buttons">
-                    <button class="btn--tiny btn--increase-servings">
+                    <button id="btn--decrease" class="btn--tiny btn--increase-servings ">
                       <svg>
                         <use href="/media/icons.svg#icon-minus-circle"></use>
                       </svg>
                     </button>
-                    <button class="btn--tiny btn--increase-servings">
+                    <button id="btn--increase" class="btn--tiny btn--increase-servings ">
                       <svg>
                         <use href="/media/icons.svg#icon-plus-circle"></use>
                       </svg>
@@ -281,8 +281,8 @@
     </section>
   </section>
 
-   <div class="overlay"></div>
-    <div class="add-recipe-window">
+   <div class="overlay is-hidden"></div>
+    <div class="add-recipe-window is-hidden">
       <button class="btn--close-modal">&times;</button>
       <form class="upload">
         <div class="upload__column">
@@ -357,6 +357,8 @@
 </main>
 
 <script src="/js/recipeSearch.js"></script>
+<script src="/js/bookmarkRecipe.js"></script>
+
 
 <script src="/js/logout.js"></script>
 
