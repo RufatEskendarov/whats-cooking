@@ -1,5 +1,5 @@
-<>
-  <section class="main is hidden">
+<div class="is-hidden" id="user-id">{{user.id}}</div>
+  <section class="main is hidgitden">
     <section class="columns main-sec">
       <section class="column is-2"></section>
       <section class="column is-8">
@@ -20,7 +20,7 @@
           </form>
           <ul class="nav">
             <li class="nav-btn">
-              <button class="btn-li">
+              <button class="btn-li" id="add-recipe-button">
                 <svg class="">
                   <use href="/media/icons.svg#icon-edit"></use>
                 </svg>
@@ -281,27 +281,27 @@
     </section>
   </section>
 
-   <div class="overlay"></div>
-    <div class="add-recipe-window">
+   <div class="overlay is-hidden"></div>
+    <div class="add-recipe-window is-hidden">
       <button class="btn--close-modal">&times;</button>
       <form class="upload">
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
-          <input value="TEST-RECIPE" required name="title" type="text" />
+          <input value="TEST-RECIPE" required name="title" type="text" id="recipe-title" />
           <label>URL</label>
-          <input value="www.test-recipe.ca" required name="sourceUrl" type="text" />
+          <input value="www.test-recipe.ca" required name="sourceUrl" type="text" id="recipe-url"/>
           <label>Image URL</label>
-          <input value="TEST-RECIPE" required name="image" type="text" />
+          <input value="TEST-RECIPE" required name="image" type="text" id="recipe-image"/>
           <label>Publisher</label>
-          <input value="TESTER" required name="publisher" type="text" />
+          <input value="TESTER" required name="publisher" type="text" id="recipe-publisher"/>
           <label>Prep time</label>
-          <input value="2023" required name="cookingTime" type="number" />
+          <input value="2023" required name="cookingTime" type="number" id="recipe-cooking-time" />
           <label>Servings</label>
-          <input value="4" required name="servings" type="number" />
+          <input value="4" required name="servings" type="number" id="recipe-servings"/>
         </div>
 
-        <div class="upload__column">
+        <div class="upload__column" id="ingredient-column">
           <h3 class="upload__heading">Ingredients</h3>
           <label>Ingredient 1</label>
           <input
@@ -359,6 +359,10 @@
 <script src="/js/recipeSearch.js"></script>
 
 <script src="/js/logout.js"></script>
+
+<script src="/js/bookmarkRecipe.js"></script>
+
+<script src="/js/addRecipe.js"></script>
 
 {{!-- {{#each recipes as |recipe| }}
 <div>
