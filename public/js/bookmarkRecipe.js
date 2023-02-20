@@ -1,15 +1,17 @@
 const bookmarkRecipe = async (event, req) => {
     event.preventDefault();
   
-   // userId value is set from handlebars and written to a div at the top of profile.handlebarsnpm u 
-   const userId = document.querySelector('#user-info').dataset.userId;
-   console.log(userId);
+   // userId value is set from handlebars and written to a div at the top of profile.handlebars
+   const userId_str = document.querySelector('#user-id').textContent;
+   const userId = parseInt(userId_str);
+  //  console.log(userId);
+
    const url_str = window.location.pathname.split('/');
    const recipeIdString = url_str[2];
    const recipeId = parseInt(recipeIdString);
-   console.log(recipeId);
+  //  console.log(recipeId);
 
-    if (userId && recipeId) {
+    if (recipeId) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/userrecipes', {
         method: 'POST',
@@ -18,15 +20,13 @@ const bookmarkRecipe = async (event, req) => {
       });
   
       if (response.ok) {
-        // If successful, redirect the browser to the dashboard page
-        // document.location.reload();
         console.log('Bookmark added')
       } else {
-        alert('Login failed, please try again!');
+        alert('Unable to add bookmark, please try again!');
       }
     }
   };
 
   document
-  .querySelector('#bookmark-button')
+  .querySelector('.btn--round')
   .addEventListener('click', bookmarkRecipe);
