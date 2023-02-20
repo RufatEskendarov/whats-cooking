@@ -1,5 +1,5 @@
-<div class="is-hidden" id="user-id">{{user.id}}</div>
-  <section class="main is hidgitden">
+
+  <section class="main is hidden">
     <section class="columns main-sec">
       <section class="column is-2"></section>
       <section class="column is-8">
@@ -20,7 +20,7 @@
           </form>
           <ul class="nav">
             <li class="nav-btn">
-              <button class="btn-li" id="add-recipe-button">
+              <button class="btn-li">
                 <svg class="">
                   <use href="/media/icons.svg#icon-edit"></use>
                 </svg>
@@ -207,12 +207,12 @@
                   <span class="recipe__info-text">servings</span>
 
                   <div class="recipe__info-buttons">
-                    <button class="btn--tiny btn--increase-servings">
+                    <button id="btn--decrease" class="btn--tiny btn--increase-servings ">
                       <svg>
                         <use href="/media/icons.svg#icon-minus-circle"></use>
                       </svg>
                     </button>
-                    <button class="btn--tiny btn--increase-servings">
+                    <button id="btn--increase" class="btn--tiny btn--increase-servings ">
                       <svg>
                         <use href="/media/icons.svg#icon-plus-circle"></use>
                       </svg>
@@ -288,20 +288,20 @@
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
-          <input value="TEST-RECIPE" required name="title" type="text" id="recipe-title" />
+          <input value="TEST-RECIPE" required name="title" type="text" />
           <label>URL</label>
-          <input value="www.test-recipe.ca" required name="sourceUrl" type="text" id="recipe-url"/>
+          <input value="www.test-recipe.ca" required name="sourceUrl" type="text" />
           <label>Image URL</label>
-          <input value="TEST-RECIPE" required name="image" type="text" id="recipe-image"/>
+          <input value="TEST-RECIPE" required name="image" type="text" />
           <label>Publisher</label>
-          <input value="TESTER" required name="publisher" type="text" id="recipe-publisher"/>
+          <input value="TESTER" required name="publisher" type="text" />
           <label>Prep time</label>
-          <input value="2023" required name="cookingTime" type="number" id="recipe-cooking-time" />
+          <input value="2023" required name="cookingTime" type="number" />
           <label>Servings</label>
-          <input value="4" required name="servings" type="number" id="recipe-servings"/>
+          <input value="4" required name="servings" type="number" />
         </div>
 
-        <div class="upload__column" id="ingredient-column">
+        <div class="upload__column">
           <h3 class="upload__heading">Ingredients</h3>
           <label>Ingredient 1</label>
           <input
@@ -357,12 +357,10 @@
 </main>
 
 <script src="/js/recipeSearch.js"></script>
-
-<script src="/js/logout.js"></script>
-
 <script src="/js/bookmarkRecipe.js"></script>
 
-<script src="/js/addRecipe.js"></script>
+
+<script src="/js/logout.js"></script>
 
 {{!-- {{#each recipes as |recipe| }}
 <div>
