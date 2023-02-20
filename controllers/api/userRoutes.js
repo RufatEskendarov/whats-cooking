@@ -78,7 +78,35 @@ router.post('/', async (req, res) => {
     }
   });
 
-  router.post('/logout', (req, res) => {
+  router.put('/login/:id', (req, res) => {
+    User.update(
+      {
+        loggedIn: true,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    )
+      .then((updatedUser) => {
+        res.json(updatedUser);
+      })
+      .catch((err) => res.json(err));
+  });
+
+  router.put('/logout', (req, res) => {
+    User.update(
+      {
+        loggedIn: false,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    )
+    
     if (req.session.logged_in) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -87,5 +115,15 @@ router.post('/', async (req, res) => {
       res.status(404).end();
     }
   });
+  
+  // router.post('/logout', (req, res) => {
+  //   if (req.session.logged_in) {
+  //     req.session.destroy(() => {
+  //       res.status(204).end();
+  //     });
+  //   } else {
+  //     res.status(404).end();
+  //   }
+  // });
 
 module.exports = router;

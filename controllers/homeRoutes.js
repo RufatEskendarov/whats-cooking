@@ -21,11 +21,12 @@ router.get("/login", (req, res) => {
 router.get("/profile", (req, res) => {
   User.findByPk(req.session.user_id, { raw: true })
     .then((user) => {
-      Recipes.findAll({ raw: true }).then((recipes) => {
-        console.log(user);
-        // console.log(req.session);
-        // console.log(recipes);
-        res.render("profile", { user, recipes });
+      Recipes.findAll({ raw: true })
+        .then((recipes) => {
+          console.log(user);
+          // console.log(req.session);
+          // console.log(recipes);
+          res.render("profile", { user, recipes });
       });
     })
     .catch((err) => {
@@ -37,10 +38,13 @@ router.get("/profile", (req, res) => {
 router.get("/profile/:id", async (req, res) => {
   try {
     const recipe = await Recipes.findByPk(req.params.id);
+    const userData = await User.findByPk(req.session.user_id);
 
     const data = recipe.get({ plain: true });
+    const user = userData.get({ plain: true });
     console.log(data);
-    res.render("profile", { data });
+    console.log(user);
+    res.render("profile", { data, user });
   } catch (error) {
     res.json(error);
   }
