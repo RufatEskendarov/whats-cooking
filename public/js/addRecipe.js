@@ -1,14 +1,15 @@
 const displayRecipeForm = (event) => {
-    event.preventDefault();
-  
-    document.querySelector('.overlay').classList.remove('is-hidden');
-    document.querySelector('.add-recipe-window').classList.remove('is-hidden');
-  }
+  event.preventDefault();
+
+  document.querySelector(".overlay").classList.remove("is-hidden");
+  document.querySelector(".add-recipe-window").classList.remove("is-hidden");
+};
 
 const addNewRecipe = async (event) => {
   event.preventDefault();
 
   const userGenerated = true;
+
   const title = document.querySelector('#recipe-title').value.trim();
   const publisher = document.querySelector('#recipe-publisher').value.trim();
   const sourceUrl = document.querySelector('#recipe-url').value.trim();
@@ -37,12 +38,15 @@ const addNewRecipe = async (event) => {
     method: 'POST',
     body: JSON.stringify({ userGenerated, title, publisher, sourceUrl, image, servings, cookingTime, ingredients}),
     headers: { 'Content-Type': 'application/json' },
+
   });
 
   if (newRecipe.ok) {
     document.location.reload();
   } else {
+
     alert('Unable to create new recipe.');
+
   }
 };
 
@@ -53,9 +57,12 @@ const closeModal = (event) => {
   document.querySelector('.add-recipe-window').classList.add('is-hidden');
 }
 
+
 document
-  .querySelector('#add-recipe-button')
-  .addEventListener('click', displayRecipeForm);
+  .querySelector("#add-recipe-button")
+  .addEventListener("click", displayRecipeForm);
+
+document.querySelector(".upload").addEventListener("submit", addNewRecipe);
 
 document
   .querySelector('.upload')
@@ -64,3 +71,4 @@ document
 document
   .querySelector('.btn--close-modal')
   .addEventListener('click', closeModal);
+

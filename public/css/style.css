@@ -350,6 +350,7 @@ svg {
 .results {
   height: 79.5%;
   margin-bottom: 2rem;
+  overflow-y: auto;
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
@@ -631,6 +632,13 @@ svg {
   transition: all 0.2s;
   display: flex;
 }
+
+.btn--round:active {
+  font-size: 0.9rem;
+  transform: translateY(-2px);
+  transition: 0.3s;
+}
+
 .btn--round svg {
   margin: 0;
   height: 2.5rem;
@@ -794,6 +802,7 @@ svg {
 }
 
 .bookmarks__list {
+  overflow-y: auto;
   list-style: none;
 }
 
@@ -811,7 +820,7 @@ svg {
   background-color: #edf7fc;
 }
 
-.books:hover ~ .bookmarks {
+.visible {
   visibility: visible;
   opacity: 1;
 }
