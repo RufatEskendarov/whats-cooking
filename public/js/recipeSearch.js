@@ -1,18 +1,24 @@
 const erororM = document.querySelector(".error");
 const message = document.querySelector(".message");
+const resultsField = document.querySelector(".results");
+const searchInput = document.getElementById("search-input");
+console.log();
 
 const sideSearchListP = document.querySelector(".results");
 
 const recipeSearch = async (event) => {
   event.preventDefault();
+
+  //Clears the field of found recipes before a new search
+  resultsField.innerHTML = "";
   // Collect values from the login form
   const search = document.querySelector("#search-input").value.trim();
-  console.log(search);
 
   if (search) {
-    const response = await fetch(`/api/recipes/find?search=${search}`).then((res) =>
-      res.json()
+    const response = await fetch(`/api/recipes/find?search=${search}`).then(
+      (res) => res.json()
     );
+    console.log(response);
 
     if (response.length < 1) {
       message.classList.toggle("is-hidden");
@@ -33,10 +39,10 @@ const recipeSearch = async (event) => {
             </h4>
             <p class="preview__publisher">${res.publisher}</p>
             <div class="preview__user-generated ${
-              !res.user ? "is-hidden" : ""
+              !res.userGenerated ? "is-hidden" : ""
             }">
               <svg class="preview__icon">
-                <use href="./media/icons.svg#icon-user"></use>
+                <use href="/media/icons.svg#icon-user"></use>
               </svg>
             </div>
           </div>
@@ -47,6 +53,8 @@ const recipeSearch = async (event) => {
       );
     }
   }
+  //Clears the input field
+  searchInput.value = "";
 };
 
 document.querySelector("#search-form").addEventListener("submit", recipeSearch);
