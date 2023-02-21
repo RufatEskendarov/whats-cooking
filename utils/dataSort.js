@@ -1,3 +1,5 @@
+// This is a function used to comb through our download of recipes and selectively seed our database.
+
 const recipesDb = require('../seeds/db.json');
 const fs = require('fs');
 

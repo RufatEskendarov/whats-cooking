@@ -2,7 +2,6 @@ const erororM = document.querySelector(".error");
 const message = document.querySelector(".message");
 const resultsField = document.querySelector(".results");
 const searchInput = document.getElementById("search-input");
-console.log();
 
 const sideSearchListP = document.querySelector(".results");
 
@@ -38,9 +37,8 @@ const recipeSearch = async (event) => {
               ${res.title}
             </h4>
             <p class="preview__publisher">${res.publisher}</p>
-            <div class="preview__user-generated ${
-              !res.userGenerated ? "is-hidden" : ""
-            }">
+            <div class="preview__user-generated ${!res.userGenerated ? "is-hidden" : ""
+          }">
               <svg class="preview__icon">
                 <use href="/media/icons.svg#icon-user"></use>
               </svg>

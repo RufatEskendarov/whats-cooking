@@ -1,6 +1,5 @@
 const displayRecipeForm = (event) => {
   event.preventDefault();
-
   document.querySelector(".overlay").classList.remove("is-hidden");
   document.querySelector(".add-recipe-window").classList.remove("is-hidden");
 };
@@ -9,7 +8,6 @@ const addNewRecipe = async (event) => {
   event.preventDefault();
 
   const userGenerated = true;
-
   const title = document.querySelector('#recipe-title').value.trim();
   const publisher = document.querySelector('#recipe-publisher').value.trim();
   const sourceUrl = document.querySelector('#recipe-url').value.trim();
@@ -18,8 +16,8 @@ const addNewRecipe = async (event) => {
   const cookingTime = document.querySelector('#recipe-cooking-time').value.trim();
 
   const ingredientFields = document.querySelectorAll('#ingredient-column input');
-  
-  const ingredients = 
+
+  const ingredients =
     Array.from(ingredientFields)
       .map(ingredientFields => {
         const ingredient = ingredientFields.value.trim().split(',');
@@ -36,7 +34,7 @@ const addNewRecipe = async (event) => {
 
   const newRecipe = await fetch('/api/recipes', {
     method: 'POST',
-    body: JSON.stringify({ userGenerated, title, publisher, sourceUrl, image, servings, cookingTime, ingredients}),
+    body: JSON.stringify({ userGenerated, title, publisher, sourceUrl, image, servings, cookingTime, ingredients }),
     headers: { 'Content-Type': 'application/json' },
 
   });
@@ -44,25 +42,19 @@ const addNewRecipe = async (event) => {
   if (newRecipe.ok) {
     document.location.reload();
   } else {
-
     alert('Unable to create new recipe.');
-
   }
 };
 
 const closeModal = (event) => {
   event.preventDefault();
-  
   document.querySelector('.overlay').classList.add('is-hidden');
   document.querySelector('.add-recipe-window').classList.add('is-hidden');
 }
 
-
 document
   .querySelector("#add-recipe-button")
   .addEventListener("click", displayRecipeForm);
-
-document.querySelector(".upload").addEventListener("submit", addNewRecipe);
 
 document
   .querySelector('.upload')
@@ -71,4 +63,3 @@ document
 document
   .querySelector('.btn--close-modal')
   .addEventListener('click', closeModal);
-
