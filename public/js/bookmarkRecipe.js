@@ -118,15 +118,14 @@ const renderBookmarks = async function () {
         </h4>
         <p class="preview__publisher">${recipe.publisher}</p>
 
-        ${
-          recipe.userGenerated
-            ? `          <div class="preview__user-generated">
+        ${recipe.userGenerated
+        ? `          <div class="preview__user-generated">
         <svg class="preview__icon">
           <use href="/media/icons.svg#icon-user"></use>
         </svg>
       </div>`
-            : ""
-        }
+        : ""
+      }
       </div>
     </a>
   </li>
