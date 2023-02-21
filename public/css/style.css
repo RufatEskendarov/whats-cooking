@@ -7,7 +7,8 @@ body {
 }
 
 .intro {
-  max-height: 100vh;
+  max-height: 100vw;
+  max-width: 100vw;
   overflow: hidden;
   position: relative;
 }
@@ -75,18 +76,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
 
-  animation: flashing-border 0.75s step-end infinite, printed-text 3s steps(18);
-}
-@keyframes flashing-border {
-  0% {
-    border-color: azure;
-  }
-  50% {
-    border-color: transparent;
-  }
-  100% {
-    border-color: azure;
-  }
+  animation: printed-text 3s steps(18);
 }
 
 @keyframes printed-text {
@@ -94,6 +84,15 @@ body {
     width: 0;
   }
 }
+
+.title-md {
+  width: 39ch;
+  white-space: nowrap;
+  overflow: hidden;
+
+  animation: printed-text 3s steps(39);
+}
+
 .log_in {
   display: flex;
   flex-direction: row;
@@ -181,7 +180,7 @@ body {
 
   color: azure;
   top: 10%;
-  left: 48rem;
+  left: 40rem;
 }
 /* section {
   border: 2px black solid;
