@@ -38,6 +38,6 @@
   
   For any questions or comments please reach out to me through github or via email.
   
-  https://github.com/Meduion
+  [https://github.com/RufatEskendarov](https://github.com/RufatEskendarov/whats-cooking/tree/develop)
 
-  brianlwyatt@gmail.com
+  rufat.eskendarov@gmail.com
